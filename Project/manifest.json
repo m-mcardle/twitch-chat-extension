@@ -1,0 +1,21 @@
+{
+    "name": "F1 Live Chat",
+    "description": "Enjoy chatting alongside other F1 fans during F1 races on F1tv! This uses Twitch's chat so if you already have a Twitch account no signup needed!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "/images/F1Car.png"
+    },
+    "icons": { "128": "/images/F1Car.png" },
+    "permissions": ["storage", "activeTab", "scripting", "tabs"],
+    "host_permissions": ["*://f1tv.formula1.com/*"],
+    "content_scripts": [{
+        "run_at": "document_idle",
+        "js": ["content.js"],
+        "matches": ["https://f1tv.formula1.com/*"]
+    }]
+}

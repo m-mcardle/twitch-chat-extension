@@ -1,0 +1,21 @@
+{
+    "name": "ESPN Live Chat",
+    "description": "Enjoy chatting alongside other Sports fans during Sporting Events on ESPN! This uses Twitch's chat so if you already have a Twitch account no signup needed!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "/images/Logo.png"
+    },
+    "icons": { "128": "/images/Logo.png" },
+    "permissions": ["storage", "activeTab", "scripting", "tabs"],
+    "host_permissions": ["*://www.espn.com/watch/*"],
+    "content_scripts": [{
+        "run_at": "document_idle",
+        "js": ["content.js"],
+        "matches": ["https://www.espn.com/watch/*"]
+    }]
+}
